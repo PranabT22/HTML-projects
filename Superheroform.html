@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Superhero Form</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    const { useState } = React;
+
+    const SuperheroForm = () => {
+      const [heroName, setHeroName] = useState('');
+      const [realName, setRealName] = useState('');
+      const [powerSource, setPowerSource] = useState('');
+      const [powers, setPowers] = useState([]);
+
+      const powerSourceOptions = [
+        'Bitten by a strange creature',
+        'Radioactive exposure',
+        'Science experiment',
+        'Alien heritage',
+        'Ancient artifact discovery',
+        'Other'
+      ];
+
+      const powersOptions = [
+        'Flight',
+        'Super strength',
+        'Super speed',
+        'Invisibility',
+        'Telekinesis',
+        'Other'
+      ];
+
+      const handlePowersChange = (e) => {
+        const { value, checked } = e.target;
+        setPowers(
+          checked
+            ? [...powers, value]
+            : powers.filter((power) => power !== value)
+        );
+      };
+
+      return (
+        <div className="form-wrap">
+          <h2>Superhero Application Form</h2>
+          <p>Please complete all fields.</p>
+          <form>
+            <div className="section">
+              <label>
+                Hero Name
+                <input
+                  type="text"
+                  value={heroName}
+                  onChange={(e) => setHeroName(e.target.value)}
+                />
+              </label>
+              <label>
+                Real Name
+                <input
+                  type="password"
+                  value={realName}
+                  onChange={(e) => setRealName(e.target.value)}
+                />
+              </label>
+            </div>
+            <label className="section column">
+              How did you get your powers?
+              <select
+                value={powerSource}
+                onChange={(e) => setPowerSource(e.target.value)}
+              >
+                <option value="">Select one</option>
+                {powerSourceOptions.map((source) => (
+                  <option key={source} value={source}>
+                    {source}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="section column">
+              List your powers (select all that apply):
+            </label>
+            {powersOptions.map((power) => (
+              <label key={power}>
+                <input
+                  type="checkbox"
+                  value={power}
+                  checked={powers.includes(power)}
+                  onChange={handlePowersChange}
+                />
+                <span>{power}</span>
+              </label>
+            ))}
+          </form>
+        </div>
+      );
+    };
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<SuperheroForm />);
+  </script>
+</body>
+</html>
