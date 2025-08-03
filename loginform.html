@@ -29,7 +29,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- Login Form -->
+        <!-- This is the login form. You see this first. -->
         <h2>Login</h2>
         <form id="loginForm" autocomplete="off">
             <label for="username">Username</label>
@@ -38,7 +38,7 @@
             <input type="password" id="password" name="password" required>
             <button type="submit">Login</button>
         </form>
-        <!-- Registration Form has been hidden -->
+        <!-- This is the registration form. You only see this if your username isn't "player1". -->
         <form id="registerForm" class="hidden" autocomplete="off">
             <h2>Register</h2>
             <label for="firstname">First Name</label>
@@ -61,5 +61,29 @@
         </form>
         <div id="successMsg" class="success hidden"></div>
     </div>
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const successMsg = document.getElementById('successMsg');
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            const username = document.getElementById('username').value.trim();
+            if (username.toLowerCase() === 'player1') {
+                alert('Welcome, player1!');
+            } else {
+                loginForm.classList.add('hidden');
+                registerForm.classList.remove('hidden');
+            }
+        });
+
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const newUsername = document.getElementById('newusername').value.trim();
+            registerForm.classList.add('hidden');
+            successMsg.textContent = `${newUsername} has been successfully registered to the system.`;
+            successMsg.classList.remove('hidden');
+        });
+    </script>
 </body>
 </html>
