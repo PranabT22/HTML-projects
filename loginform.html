@@ -2,65 +2,576 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login/Registration Page</title>
+    <title>Login/Registration - Hyperspace Style</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background: #f2f2f2; font-family: Arial, sans-serif; }
-        .container {
-            width: 350px; margin: 80px auto; padding: 30px 25px;
-            background: #fff; border-radius: 8px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        /* Import Font Awesome */
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+        /*
+	        Hyperspace by HTML5 UP
+	        html5up.net | @ajlkn
+	        Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+        */
+
+        /* Reset and Base Styles */
+        html, body, div, span, applet, object,
+        iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+        pre, a, abbr, acronym, address, big, cite,
+        code, del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var, b,
+        u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+        form, label, legend, table, caption, tbody,
+        tfoot, thead, tr, th, td, article, aside,
+        canvas, details, embed, figure, figcaption,
+        footer, header, hgroup, menu, nav, output, ruby,
+        section, summary, time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
         }
-        h2 { text-align: center; margin-bottom: 24px; color: #333; }
-        label { display: block; margin-bottom: 8px; color: #555; font-weight: 600; }
-        input, select {
-            width: 100%; padding: 10px; margin-bottom: 18px;
-            border: 1px solid #ccc; border-radius: 4px; font-size: 15px;
+
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
         }
-        button {
-            width: 100%; padding: 10px; background: #3f51b5;
-            border: none; border-radius: 4px; color: #fff;
-            font-size: 16px; font-weight: 600; cursor: pointer;
+
+        body {
+            line-height: 1;
+            background: #312450;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgba(255, 255, 255, 0.55);
         }
-        button:hover { background: #303f9f; }
-        .hidden { display: none; }
-        .success { color: green; text-align: center; font-weight: bold; }
+
+        ol, ul {
+            list-style: none;
+        }
+
+        blockquote, q {
+            quotes: none;
+        }
+
+        blockquote:before, blockquote:after, q:before, q:after {
+            content: '';
+            content: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        body {
+            -webkit-text-size-adjust: none;
+        }
+
+        mark {
+            background-color: transparent;
+            color: inherit;
+        }
+
+        input::-moz-focus-inner {
+            border: 0;
+            padding: 0;
+        }
+
+        input, select, textarea {
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+        }
+
+        /* Basic */
+        @-ms-viewport {
+            width: device-width;
+        }
+
+        body {
+            -ms-overflow-style: scrollbar;
+        }
+
+        @media screen and (max-width: 480px) {
+            html, body {
+                min-width: 320px;
+            }
+        }
+
+        html {
+            box-sizing: border-box;
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        body.is-preload *, body.is-preload *:before, body.is-preload *:after {
+            -moz-animation: none !important;
+            -webkit-animation: none !important;
+            -ms-animation: none !important;
+            animation: none !important;
+            -moz-transition: none !important;
+            -webkit-transition: none !important;
+            -ms-transition: none !important;
+            transition: none !important;
+        }
+
+        /* Type */
+        body, input, select, textarea {
+            color: rgba(255, 255, 255, 0.55);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16.5pt;
+            font-weight: normal;
+            line-height: 1.75;
+        }
+
+        @media screen and (max-width: 1680px) {
+            body, input, select, textarea {
+                font-size: 13pt;
+            }
+        }
+
+        @media screen and (max-width: 1280px) {
+            body, input, select, textarea {
+                font-size: 12pt;
+            }
+        }
+
+        @media screen and (max-width: 360px) {
+            body, input, select, textarea {
+                font-size: 11pt;
+            }
+        }
+
+        a {
+            -moz-transition: color 0.2s ease, border-bottom-color 0.2s ease;
+            -webkit-transition: color 0.2s ease, border-bottom-color 0.2s ease;
+            -ms-transition: color 0.2s ease, border-bottom-color 0.2s ease;
+            transition: color 0.2s ease, border-bottom-color 0.2s ease;
+            border-bottom: dotted 1px rgba(255, 255, 255, 0.35);
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover {
+            border-bottom-color: transparent;
+            color: #ffffff;
+        }
+
+        strong, b {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        em, i {
+            font-style: italic;
+        }
+
+        p {
+            margin: 0 0 2em 0;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #ffffff;
+            font-weight: bold;
+            line-height: 1.5;
+            margin: 0 0 0.5em 0;
+        }
+
+        h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        h1 {
+            font-size: 2.75em;
+        }
+
+        h1.major {
+            margin: 0 0 1.3em 0;
+            position: relative;
+            padding-bottom: 0.35em;
+        }
+
+        h1.major:after {
+            background-image: -moz-linear-gradient(to right, #5e42a6, #b74e91);
+            background-image: -webkit-linear-gradient(to right, #5e42a6, #b74e91);
+            background-image: -ms-linear-gradient(to right, #5e42a6, #b74e91);
+            background-image: linear-gradient(to right, #5e42a6, #b74e91);
+            -moz-transition: max-width 0.2s ease;
+            -webkit-transition: max-width 0.2s ease;
+            -ms-transition: max-width 0.2s ease;
+            transition: max-width 0.2s ease;
+            border-radius: 0.2em;
+            bottom: 0;
+            content: '';
+            height: 0.05em;
+            position: absolute;
+            right: 0;
+            width: 100%;
+        }
+
+        h2 {
+            font-size: 1.75em;
+        }
+
+        h3 {
+            font-size: 1.1em;
+        }
+
+        h4 {
+            font-size: 1em;
+        }
+
+        h5 {
+            font-size: 0.8em;
+        }
+
+        h6 {
+            font-size: 0.6em;
+        }
+
+        @media screen and (max-width: 736px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.25em;
+            }
+
+            h3 {
+                font-size: 1em;
+            }
+
+            h4 {
+                font-size: 0.8em;
+            }
+
+            h5 {
+                font-size: 0.6em;
+            }
+
+            h6 {
+                font-size: 0.6em;
+            }
+        }
+
+        /* Form Elements */
+        label {
+            color: #ffffff;
+            font-weight: bold;
+            line-height: 1.5;
+            margin: 0 0 0.7em 0;
+            display: block;
+            font-size: 1.1em;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0.25em;
+            border: none;
+            border: solid 1px rgba(255, 255, 255, 0.15);
+            color: inherit;
+            display: block;
+            outline: 0;
+            padding: 0 1em;
+            text-decoration: none;
+            width: 100%;
+            height: 2.75em;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #ffffff;
+            box-shadow: 0 0 0 1px #ffffff;
+        }
+
+        select {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='rgba(255, 255, 255, 0.15)' /%3E%3C/svg%3E");
+            background-size: 1.25rem;
+            background-repeat: no-repeat;
+            background-position: calc(100% - 1rem) center;
+            padding-right: 2.75em;
+            text-overflow: ellipsis;
+        }
+
+        /* Button */
+        input[type="submit"],
+        input[type="reset"],
+        input[type="button"],
+        button,
+        .button {
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+            -moz-transition: border-color 0.2s ease;
+            -webkit-transition: border-color 0.2s ease;
+            -ms-transition: border-color 0.2s ease;
+            transition: border-color 0.2s ease;
+            background-color: transparent;
+            border: solid 1px !important;
+            border-color: rgba(255, 255, 255, 0.15) !important;
+            border-radius: 3em;
+            color: #ffffff !important;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 0.6em;
+            font-weight: bold;
+            height: calc(4.75em + 2px);
+            letter-spacing: 0.25em;
+            line-height: 4.75em;
+            outline: 0;
+            padding: 0 3.75em;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        input[type="submit"]:after,
+        input[type="reset"]:after,
+        input[type="button"]:after,
+        button:after,
+        .button:after {
+            -moz-transform: scale(0.25);
+            -webkit-transform: scale(0.25);
+            -ms-transform: scale(0.25);
+            transform: scale(0.25);
+            pointer-events: none;
+            -moz-transition: opacity 0.2s ease, -moz-transform 0.2s ease;
+            -webkit-transition: opacity 0.2s ease, -webkit-transform 0.2s ease;
+            -ms-transition: opacity 0.2s ease, -ms-transform 0.2s ease;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            background: #ffffff;
+            border-radius: 3em;
+            content: '';
+            height: 100%;
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover,
+        input[type="button"]:hover,
+        button:hover,
+        .button:hover {
+            border-color: rgba(255, 255, 255, 0.55) !important;
+        }
+
+        input[type="submit"]:hover:after,
+        input[type="reset"]:hover:after,
+        input[type="button"]:hover:after,
+        button:hover:after,
+        .button:hover:after {
+            opacity: 0.05;
+            -moz-transform: scale(1);
+            -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+            transform: scale(1);
+        }
+
+        /* Wrapper */
+        .wrapper {
+            position: relative;
+        }
+
+        .wrapper > .inner {
+            padding: 5em 5em 3em 5em;
+            max-width: 100%;
+            width: 75em;
+        }
+
+        @media screen and (max-width: 1680px) {
+            .wrapper > .inner {
+                padding: 4em 4em 2em 4em;
+            }
+        }
+
+        @media screen and (max-width: 1280px) {
+            .wrapper > .inner {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 736px) {
+            .wrapper > .inner {
+                padding: 3em 2em 1em 2em;
+            }
+        }
+
+        .wrapper.style1 {
+            background-color: #5e42a6;
+        }
+
+        /* Custom styles for the login/registration form */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2em;
+        }
+
+        .form-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0.5em;
+            padding: 2.5em;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border: solid 1px rgba(255, 255, 255, 0.15);
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 1.5em;
+            color: #ffffff;
+            position: relative;
+            padding-bottom: 0.5em;
+        }
+
+        .form-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(to right, #5e42a6, #b74e91);
+        }
+
+        .form-group {
+            margin-bottom: 1.5em;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .success-message {
+            text-align: center;
+            color: #ffffff;
+            padding: 1em;
+            background: rgba(0, 200, 0, 0.2);
+            border-radius: 0.25em;
+            margin-top: 1em;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 1.5em;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9em;
+        }
+
+        .icon-input {
+            position: relative;
+        }
+
+        .icon-input i {
+            position: absolute;
+            left: 1em;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .icon-input input {
+            padding-left: 3em;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- This is the login form. You see this first. -->
-        <h2>Login</h2>
-        <form id="loginForm" autocomplete="off">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required autofocus>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Login</button>
-        </form>
-        <!-- This is the registration form. You only see this if your username isn't "player1". -->
-        <form id="registerForm" class="hidden" autocomplete="off">
-            <h2>Register</h2>
-            <label for="firstname">First Name</label>
-            <input type="text" id="firstname" name="firstname" required>
-            <label for="lastname">Last Name</label>
-            <input type="text" id="lastname" name="lastname" required>
-            <label for="birthdate">Birthdate (M/D/Y)</label>
-            <input type="text" id="birthdate" name="birthdate" placeholder="MM/DD/YYYY" required>
-            <label for="gender">Gender</label>
-            <select id="gender" name="gender" required>
-                <option value="" disabled selected>Select your gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-                <option value="Prefer not to say">Prefer not to say</option>
-            </select>
-            <label for="newusername">New Username</label>
-            <input type="text" id="newusername" name="newusername" required>
-            <button type="submit">Register</button>
-        </form>
-        <div id="successMsg" class="success hidden"></div>
+    <div class="login-container">
+        <div class="form-box wrapper style1">
+            <!-- Login Form -->
+            <form id="loginForm" class="form-content">
+                <h2 class="form-title"><i class="fas fa-sign-in-alt"></i> Login</h2>
+                
+                <div class="form-group icon-input">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" name="username" placeholder="Username" required autofocus>
+                </div>
+                
+                <div class="form-group icon-input">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                
+                <button type="submit" class="button primary" style="width: 100%">Login</button>
+                
+                <div class="form-footer">
+                    <p>Not registered? Enter any username except 'player1'</p>
+                </div>
+            </form>
+
+            <!-- Registration Form -->
+            <form id="registerForm" class="form-content hidden">
+                <h2 class="form-title"><i class="fas fa-user-plus"></i> Register</h2>
+                
+                <div class="form-group icon-input">
+                    <i class="fas fa-id-card"></i>
+                    <input type="text" id="firstname" name="firstname" placeholder="First Name" required>
+                </div>
+                
+                <div class="form-group icon-input">
+                    <i class="fas fa-id-card"></i>
+                    <input type="text" id="lastname" name="lastname" placeholder="Last Name" required>
+                </div>
+                
+                <div class="form-group icon-input">
+                    <i class="fas fa-birthday-cake"></i>
+                    <input type="text" id="birthdate" name="birthdate" placeholder="MM/DD/YYYY" required>
+                </div>
+                
+                <div class="form-group">
+                    <select id="gender" name="gender" required>
+                        <option value="" disabled selected>Select your gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                        <option value="Prefer not to say">Prefer not to say</option>
+                    </select>
+                </div>
+                
+                <div class="form-group icon-input">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="newusername" name="newusername" placeholder="New Username" required>
+                </div>
+                
+                <button type="submit" class="button primary" style="width: 100%">Register</button>
+            </form>
+
+            <!-- Success Message -->
+            <div id="successMsg" class="success-message hidden"></div>
+        </div>
     </div>
+
     <script>
         const loginForm = document.getElementById('loginForm');
         const registerForm = document.getElementById('registerForm');
@@ -70,7 +581,11 @@
             e.preventDefault(); 
             const username = document.getElementById('username').value.trim();
             if (username.toLowerCase() === 'player1') {
-                alert('Welcome, player1!');
+                successMsg.textContent = 'Welcome, player1!';
+                successMsg.classList.remove('hidden');
+                setTimeout(() => {
+                    successMsg.classList.add('hidden');
+                }, 3000);
             } else {
                 loginForm.classList.add('hidden');
                 registerForm.classList.remove('hidden');
@@ -83,6 +598,14 @@
             registerForm.classList.add('hidden');
             successMsg.textContent = `${newUsername} has been successfully registered to the system.`;
             successMsg.classList.remove('hidden');
+            
+            // Reset forms after successful registration
+            setTimeout(() => {
+                successMsg.classList.add('hidden');
+                loginForm.classList.remove('hidden');
+                loginForm.reset();
+                registerForm.reset();
+            }, 5000);
         });
     </script>
 </body>
